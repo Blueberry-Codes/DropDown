@@ -1,5 +1,7 @@
 # DropDown 🎬⬇️
 
+**Drop a link and Download with DropDown!**
+
 Paste a link, pick a server, hit **Get**. That's the whole app.
 
 DropDown is a flashy little Windows desktop app for downloading videos and audio from

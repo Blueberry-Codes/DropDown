@@ -68,9 +68,10 @@ they're not all equal:
 ## 💻 Requirements
 
 - Windows 10 build 19041 (May 2020 Update) or later, x64
-- That's it. The release zip is fully self-contained (.NET runtime and Windows App SDK
-  included), so there's nothing to install
-- Building from source needs the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
+- The standard release zip is fully self-contained (.NET runtime and Windows App SDK
+  included), so there's nothing to install. The **Lite** zip is smaller but needs the
+  [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) installed once
+- Building from source needs the .NET 10 SDK
 
 ## 🔨 Building from source
 

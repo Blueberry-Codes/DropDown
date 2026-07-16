@@ -10,6 +10,8 @@
     <WindowsPackageType>None</WindowsPackageType>
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <!-- English-only app: skip .NET satellite resource assemblies for other languages -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
   <!-- Workaround: inside Visual Studio the WinUI XAML targets probe $(VsInstallRoot)\VC\Tools\MSVC
@@ -28,6 +30,14 @@
        (XAML resource lookup fails before the window exists). -->
   <Target Name="CopyPriToPublish" AfterTargets="Publish">
     <Copy SourceFiles="$(TargetDir)$(TargetName).pri" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- The Windows App SDK ships ~85 locale folders of system-string translations
+       (af-ZA, ar-SA, ...) that an English-only app never uses. Windows MUI lookup
+       falls back to en-us when a locale folder is absent, so pruning them is safe.
+       Keeps the publish folder from looking like a UN summit. -->
+  <Target Name="PruneLocaleFolders" AfterTargets="CopyPriToPublish">
+    <Exec Command="powershell -NoProfile -Command &quot;Get-ChildItem -Directory -LiteralPath '$(PublishDir.TrimEnd('\'))' | Where-Object { $_.Name -match '^[a-z]{2,3}(-[A-Za-z0-9]+)+$' -and $_.Name -ne 'en-us' } | Remove-Item -Recurse -Force&quot;" />
   </Target>
 
 </Project>

@@ -68,9 +68,9 @@ they're not all equal:
 ## 💻 Requirements
 
 - Windows 10 build 19041 (May 2020 Update) or later, x64
-- [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
-  (the SDK if you're building from source)
-- That's it. No separate Windows App SDK install, the app is self-contained
+- That's it. The release zip is fully self-contained (.NET runtime and Windows App SDK
+  included), so there's nothing to install
+- Building from source needs the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 ## 🔨 Building from source
 

@@ -23,4 +23,11 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260529003" />
   </ItemGroup>
 
+  <!-- Workaround: dotnet publish doesn't copy the app's generated .pri into the publish
+       folder for unpackaged WinUI apps. Without it the exe dies instantly on launch
+       (XAML resource lookup fails before the window exists). -->
+  <Target Name="CopyPriToPublish" AfterTargets="Publish">
+    <Copy SourceFiles="$(TargetDir)$(TargetName).pri" DestinationFolder="$(PublishDir)" SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>

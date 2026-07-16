@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  IgnorableNamespaces="uap mp desktop">
+
+  <Identity
+    Name="DropDown"
+    Publisher="CN=Blueberry-Codes"
+    Version="1.0.0.0" />
+
+  <Properties>
+    <DisplayName>DropDown</DisplayName>
+    <PublisherDisplayName>Blueberry-Codes</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.19041.0" MaxVersionTested="10.0.22621.0" />
+    <PackageDependency Name="Microsoft.WindowsAppSDK.RELEASE.1.6" MinVersion="1.6.241208000" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+                 Executable="$targetnametoken$.exe"
+                 EntryPoint="DropDown.App">
+      <uap:VisualElements
+          DisplayName="DropDown"
+          Square150x150Logo="Assets\Square150x150Logo.png"
+          Square44x44Logo="Assets\Square44x44Logo.png"
+          Description="DropDown - Video Downloader"
+          BackgroundColor="#464646">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="documentsLibrary" />
+    <Capability Name="videosLibrary" />
+    <Capability Name="musicLibrary" />
+  </Capabilities>
+
+</Package>

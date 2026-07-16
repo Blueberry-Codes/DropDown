@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <RootNamespace>DropDown</RootNamespace>
+    <UseWinUI>true</UseWinUI>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <WindowsPackageType>None</WindowsPackageType>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <!-- Workaround: inside Visual Studio the WinUI XAML targets probe $(VsInstallRoot)\VC\Tools\MSVC
+       and crash if the C++ toolset isn't installed. Presetting VCToolsInstallDir skips that probe;
+       the resulting vcmeta.dll path is never loaded for C#-only projects. -->
+  <PropertyGroup Condition="'$(VsInstallRoot)' != '' and !Exists('$(VsInstallRoot)\VC\Tools\MSVC')">
+    <VCToolsInstallDir>$(MSBuildThisFileDirectory)</VCToolsInstallDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260529003" />
+  </ItemGroup>
+
+</Project>

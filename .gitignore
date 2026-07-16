@@ -1,0 +1,55 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+/out/
+/publish/
+*.pdb
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# WinUI / MSIX packaging: signing keys must never be committed
+AppPackages/
+BundleArtifacts/
+Generated Files/
+*.appx
+*.appxbundle
+*.appxupload
+*.appxsym
+*.cer
+*.pfx
+
+# NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+
+# Claude Code local settings: machine-specific, not for publishing
+.claude/
+
+# Internal dev notes: detailed build/audit history kept for local reference only,
+# not meant for the public repo. README.md is the public-facing doc.
+ROADMAP.md
+
+# Local user data this app itself writes at runtime (never part of the repo)
+# %LOCALAPPDATA%\DropDown\ lives outside this folder, but excluded here too
+# in case anything ever gets copied in during local testing
+settings.json
+history.json
+
+# Logs and scratch/debug artifacts
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project context doc for Claude Code: internal, same policy as ROADMAP.md
+CLAUDE.md
